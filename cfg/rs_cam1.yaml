@@ -1,0 +1,13 @@
+image_width: 848
+image_height: 480
+camera_name: cam1
+camera_matrix:
+  rows: 3
+  cols: 3
+  data: [422.78975329361333, 0.0, 422.55224684503423, 0.0, 422.6041823989262, 239.4242174943134, 0.0, 0.0, 1.0]
+distortion_model: plumb_bob
+distortion_coefficients:
+  rows: 1
+  cols: 5
+  data: [-0.002673713652159093, -0.0014490333680402345, -0.0007500806879317346, -4.899379147406567e-05, 0.0]
+
