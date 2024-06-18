@@ -9,24 +9,24 @@ Common
 Camera0
 {
   CalibrationFile  ;            Camera-Calibration file for intrinsics
-  qCM_x  -0.7068704436731669;                               X-entry of IMU to Camera quaterion (Hamilton)
-  qCM_y  -0.7072897069475883;                               Y-entry of IMU to Camera quaterion (Hamilton)
-  qCM_z  0.006648283470398838;                               Z-entry of IMU to Camera quaterion (Hamilton)
-  qCM_w  0.005589868888661866;                               W-entry of IMU to Camera quaterion (Hamilton)
-  MrMC_x 9.509149476349954e-05;                               X-entry of IMU to Camera vector (expressed in IMU CF) [m]
-  MrMC_y -0.06719831367394326;                               Y-entry of IMU to Camera vector (expressed in IMU CF) [m]
-  MrMC_z 0.005428199393790414;                               Z-entry of IMU to Camera vector (expressed in IMU CF) [m]
+  qCM_x  0.709044997074735;                               X-entry of IMU to Camera quaterion (Hamilton)
+  qCM_y  0.7051201748617175;                               Y-entry of IMU to Camera quaterion (Hamilton)
+  qCM_z  -0.007786903887928419;                               Z-entry of IMU to Camera quaterion (Hamilton)
+  qCM_w  0.0003086326460907066;                               W-entry of IMU to Camera quaterion (Hamilton)
+  MrMC_x -0.0007126137257567611;                               X-entry of IMU to Camera vector (expressed in IMU CF) [m]
+  MrMC_y -0.06736505543115869;                               Y-entry of IMU to Camera vector (expressed in IMU CF) [m]
+  MrMC_z -0.013508781860530394;                               Z-entry of IMU to Camera vector (expressed in IMU CF) [m]
 }
 Camera1
 {
   CalibrationFile  ;            Camera-Calibration file for intrinsics
-  qCM_x  0.7088960591741625;                               X-entry of IMU to Camera quaterion (Hamilton)
-  qCM_y  0.7053071217010645;                               Y-entry of IMU to Camera quaterion (Hamilton)
-  qCM_z  0.0003976558094220263;                               Z-entry of IMU to Camera quaterion (Hamilton)
-  qCM_w  0.0028431030511530315;                               W-entry of IMU to Camera quaterion (Hamilton)
-  MrMC_x -0.00017024433428129097;                               X-entry of IMU to Camera vector (expressed in IMU CF) [m]
-  MrMC_y 0.007191835639092835;                               Y-entry of IMU to Camera vector (expressed in IMU CF) [m]
-  MrMC_z 0.004639724957759677;                               Z-entry of IMU to Camera vector (expressed in IMU CF) [m]
+  qCM_x  0.7091417464671141;                               X-entry of IMU to Camera quaterion (Hamilton)
+  qCM_y  0.7050249445882417;                               Y-entry of IMU to Camera quaterion (Hamilton)
+  qCM_z  -0.005788350612859592;                               Z-entry of IMU to Camera quaterion (Hamilton)
+  qCM_w  0.004930103761644053;                               W-entry of IMU to Camera quaterion (Hamilton)
+  MrMC_x -0.00048152097045651987;                               X-entry of IMU to Camera vector (expressed in IMU CF) [m]
+  MrMC_y 0.007062064519687037;                               Y-entry of IMU to Camera vector (expressed in IMU CF) [m]
+  MrMC_z -0.014035258098125338;                               Z-entry of IMU to Camera vector (expressed in IMU CF) [m]
 }
 Init
 {
@@ -149,7 +149,7 @@ Prediction
         pos_0 1e-4;               X-covariance parameter of position prediction [m^2/s]
         pos_1 1e-4;               Y-covariance parameter of position prediction [m^2/s]
         pos_2 1e-4;               Z-covariance parameter of position prediction [m^2/s]
-        vel_0 4e-5; 4e-6            X-covariance parameter of velocity prediction [m^2/s^3]
+        vel_0 4e-5;            X-covariance parameter of velocity prediction [m^2/s^3]
         vel_1 4e-5;               Y-covariance parameter of velocity prediction [m^2/s^3]
         vel_2 4e-5;               Z-covariance parameter of velocity prediction [m^2/s^3]
         acb_0 1e-8;               X-covariance parameter of accelerometer bias prediction [m^2/s^5]
@@ -159,7 +159,7 @@ Prediction
         gyb_1 3.8e-7;             Y-covariance parameter of gyroscope bias prediction [rad^2/s^3]
         gyb_2 3.8e-7;             Z-covariance parameter of gyroscope bias prediction [rad^2/s^3]
         vep 1e-8;               Covariance parameter of linear extrinsics prediction [m^2/s]
-        att_0 7.6e-7; 7.6e-7          X-Covariance parameter of attitude prediction [rad^2/s]
+        att_0 7.6e-7;          X-Covariance parameter of attitude prediction [rad^2/s]
         att_1 7.6e-7;             Y-Covariance parameter of attitude prediction [rad^2/s]
         att_2 7.6e-7;             Z-Covariance parameter of attitude prediction [rad^2/s]
         vea 1e-8;               Covariance parameter of rotational extrinsics prediction [rad^2/s]
