@@ -11,4 +11,8 @@
   <param name="cam0_topic_name" value="/camera/infra1/image_rect_raw"/>
   <param name="cam1_topic_name" value="/camera/infra2/image_rect_raw"/>-->
   </node>
+  <node pkg="tf2_ros" type="static_transform_publisher" name="tf2_ENU_NED" args="0 0 0 0.7071068 0.7071068 0 0 world world_ned" />
+  <node pkg="tf2_ros" type="static_transform_publisher" name="tf2_ENU_NWU" args="0 0 0 0 0 0.7071068 0.7071068  world world_nwu" />
+  <node pkg="tf2_ros" type="static_transform_publisher" name="tf2_BNED_C" args="0.08 0 -0.02 -0.2988362 0.2988362 -0.6408564 0.6408564 body_ned cam_spec" />
+
 </launch>
