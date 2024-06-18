@@ -83,6 +83,10 @@ class RovioNode{
   typedef typename std::tuple_element<2,typename mtFilter::mtUpdates>::type mtVelocityUpdate;
   typedef typename mtVelocityUpdate::mtMeas mtVelocityMeas;
   mtVelocityMeas velocityUpdateMeas_;
+  
+  //Update direction
+  tf::Quaternion imu_to_drone_rotation;
+  tf::Quaternion drone_rotation;
 
   struct FilterInitializationState {
     FilterInitializationState()
@@ -241,6 +245,7 @@ class RovioNode{
     nh_private_.param("camera_frame", camera_frame_, camera_frame_);
     nh_private_.param("imu_frame", imu_frame_, imu_frame_);
 
+    imu_to_drone_rotation.setRPY(45,45,45);
     // Initialize messages
     transformMsg_.header.frame_id = world_frame_;
     transformMsg_.child_frame_id = imu_frame_;
@@ -729,10 +734,11 @@ class RovioNode{
           odometryMsgPoseStamped_.pose.position.x = imuOutput_.WrWB()(0);
           odometryMsgPoseStamped_.pose.position.y = imuOutput_.WrWB()(1);
           odometryMsgPoseStamped_.pose.position.z = imuOutput_.WrWB()(2);
-          odometryMsgPoseStamped_.pose.orientation.w = -imuOutput_.qBW().w();
-          odometryMsgPoseStamped_.pose.orientation.x = imuOutput_.qBW().x();
-          odometryMsgPoseStamped_.pose.orientation.y = imuOutput_.qBW().y();
-          odometryMsgPoseStamped_.pose.orientation.z = imuOutput_.qBW().z();
+          drone_rotation=tf::Quaternion(imuOutput_.qBW().x(),imuOutput_.qBW().y(),imuOutput_.qBW().z(),-imuOutput_.qBW().w())*imu_to_drone_rotation;
+          odometryMsgPoseStamped_.pose.orientation.w = drone_rotation.getW();
+          odometryMsgPoseStamped_.pose.orientation.x = drone_rotation.getX();
+          odometryMsgPoseStamped_.pose.orientation.y = drone_rotation.getY();
+          odometryMsgPoseStamped_.pose.orientation.z = drone_rotation.getZ();
           pubOdometry_.publish(odometryMsgPoseStamped_);
         }
 
