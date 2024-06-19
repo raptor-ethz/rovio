@@ -245,7 +245,7 @@ class RovioNode{
     nh_private_.param("camera_frame", camera_frame_, camera_frame_);
     nh_private_.param("imu_frame", imu_frame_, imu_frame_);
 
-    imu_to_drone_rotation=tf::Quaternion(-0.675920118086117,-0.733368221826932,-0.0371629189464245,0.06222014598456050)
+    imu_to_drone_rotation=tf::Quaternion(-0.675920118086117,-0.733368221826932,-0.0371629189464245,0.06222014598456050);
     // Initialize messages
     transformMsg_.header.frame_id = world_frame_;
     transformMsg_.child_frame_id = imu_frame_;
