@@ -43,6 +43,8 @@ def publish_infra_and_imu():
     mono_left.out.link(xoutleft.input)
     mono_right.out.link(xoutright.input)
     stereo.depth.link(xoutstereo.input)
+    mono_left.out.link(stereo.left)
+    mono_right.out.link(stereo.right)
     
 
     imu1= pipeline.create(depthai.node.IMU)
@@ -108,7 +110,7 @@ def publish_infra_and_imu():
                 mono2_pub.publish(right_image)
             if qstereo.has():
                 raw_depth=qstereo.tryGet()
-                stereo_depth=bridge_stereo.cv2_to_imgmsg(raw_depth.getCvFrame(),encoding="passtrough")
+                stereo_depth=bridge_stereo.cv2_to_imgmsg(raw_depth.getCvFrame(),encoding="passthrough")
                 stereo_depth.header.stamp=rospy.Time.now()
                 depth_pub.publish(stereo_depth)
 
